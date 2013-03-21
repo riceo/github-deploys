@@ -5,9 +5,6 @@
 # Copyright 2013, Duedil Limited
 #
 
-# connect to the linkedin API, upload the key
-# Create a code deploys group
-
 user node[:github_deploys][:deploy_user] do
   comment "Github Deploy user"
   shell "/bin/bash"
