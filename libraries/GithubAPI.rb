@@ -24,7 +24,9 @@ module GithubAPI
 			Chef::Log.info("Github SSH key successfully added for #{title}")
 			return true
 		else
-			Chef::Log.info("Unable to add Github SSH key for #{title}")
+			Chef::Log.warn("Unable to add Github SSH key for #{title}")
+			Chef::Log.warn("#{response.code}: #{response.message} - #{response.body}")
+			Chef::Log.warn("#{user}:#{pass}")
 			return false
 		end
 
