@@ -8,10 +8,6 @@
 # connect to the linkedin API, upload the key
 # Create a code deploys group
 
-class Chef::Recipe
-  include GithubAPI
-end
-
 user node[:github_deploys][:deploy_user] do
   comment "Github Deploy user"
   shell "/bin/false"
@@ -27,10 +23,17 @@ execute "generate_keypair" do
 	not_if { ::File.exists?("/home/#{node[:github_deploys][:deploy_user]}/.ssh")}
 end
 
+ruby_block "upload_key_to_github" do
+	block do
 
-github_key_response = upload_key(
-	node[:github_deploys][:github_api][:user_email],
-	node[:github_deploys][:github_api][:password],
-	node[:fqdn],
-	"#{path_to_key}.pub"
-)
+		class Chef::Resource::RubyBlock
+		  include GithubAPI
+		end
+
+		upload_key(
+			node[:github_deploys][:github_api][:user_email],
+			node[:github_deploys][:github_api][:password],
+			node[:fqdn],
+			"#{path_to_key}.pub")
+	end
+end
