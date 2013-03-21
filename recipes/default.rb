@@ -27,9 +27,6 @@ execute "generate_keypair" do
 	not_if { ::File.exists?("/home/#{node[:github_deploys][:deploy_user]}/.ssh")}
 end
 
-gem_package "json" do
-	action :install
-end
 
 github_key_response = upload_key(
 	node[:github_deploys][:github_api][:user_email],
