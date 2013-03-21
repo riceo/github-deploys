@@ -3,7 +3,7 @@ Description
 
 This cookbook creates a deploy user, generate it a keypair, then uses the Github API to add the public key to the user's list of authenticated keys on Github.
 
-The goal is to configure a local user account that has access to all required Github repos for deploying code.
+The end goal is to configure a local user account that has access to all required Github repos for deploying code.
 
 Todo:
 
@@ -19,11 +19,13 @@ Requirements
 Attributes
 ==========
 
-default[:github_deploys][:deploy_user] = "deploy"
-default[:github_deploys][:github_api][:endpoint_path] = "/user/keys"
-default[:github_deploys][:github_api][:username] = "SET_YOUR_GITHUB_USERNAME"
-default[:github_deploys][:github_api][:email] = "SET_YOUR_GITHUB_USER_EMAIL"
-default[:github_deploys][:github_api][:password] = "GITHUB_PASSWORD"
+
+    default[:github_deploys][:deploy_user] = "deploy"
+    default[:github_deploys][:github_api][:endpoint_path] = "/user/keys"
+    default[:github_deploys][:github_api][:username] = "SET_YOUR_GITHUB_USERNAME"
+    default[:github_deploys][:github_api][:email] = "SET_YOUR_GITHUB_USER_EMAIL"
+    default[:github_deploys][:github_api][:password] = "GITHUB_PASSWORD"
+
 
 Usage
 =====
