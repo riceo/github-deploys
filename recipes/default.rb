@@ -9,6 +9,7 @@ user node[:github_deploys][:deploy_user] do
   comment "Github Deploy user"
   shell "/bin/bash"
   home "/home/#{node[:github_deploys][:deploy_user]}"
+  gid node[:github_deploys][:deploy_group]
   supports :manage_home => true
 end
 

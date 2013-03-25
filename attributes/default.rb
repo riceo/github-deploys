@@ -1,4 +1,5 @@
 default[:github_deploys][:deploy_user] = "deploy"
+default[:github_deploys][:deploy_group] = "deploy"
 
 default[:github_deploys][:github_api][:endpoint_path] = "/user/keys"
 default[:github_deploys][:github_api][:username] = "SET_YOUR_GITHUB_USERNAME"
