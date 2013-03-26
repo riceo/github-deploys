@@ -11,6 +11,7 @@ user node[:github_deploys][:deploy_user] do
   home "/home/#{node[:github_deploys][:deploy_user]}"
   gid node[:github_deploys][:deploy_group]
   supports :manage_home => true
+  uid	node[:github_deploys][:deploy_uid]
 end
 
 path_to_key = "/home/#{node[:github_deploys][:deploy_user]}/.ssh/id_rsa"
