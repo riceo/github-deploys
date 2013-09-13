@@ -15,7 +15,7 @@ module GithubAPI
 
 		headers = {
 			'Content-Type'  => 'application/x-www-form-urlencoded',
-			'Authorization' =>  "Basic " + Base64.encode64("#{user}:#{pass}").chop
+			'Authorization' =>  "Basic " + Base64.encode64("#{user}:#{pass}").gsub(/\n/, '').chop
 		}
 
 		response = http.post(path, data, headers)
