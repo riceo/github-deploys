@@ -1,3 +1,4 @@
+name             "github-deploys"
 maintainer       "DUEDIL"
 maintainer_email "aaron@duedil.com"
 license          "Apache 2.0"
